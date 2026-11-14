@@ -8,44 +8,148 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root"
-import { Route as IndexRouteImport } from "./routes/index"
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as PitchRouteImport } from './routes/pitch'
+import { Route as InvestigationsIndexRouteImport } from './routes/investigations/index'
+import { Route as InvestigationsIdRouteImport } from './routes/investigations/$id'
 
 const IndexRoute = IndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PitchRoute = PitchRouteImport.update({
+  id: '/pitch',
+  path: '/pitch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestigationsIndexRoute = InvestigationsIndexRouteImport.update({
+  id: '/investigations/',
+  path: '/investigations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestigationsIdRoute = InvestigationsIdRouteImport.update({
+  id: '/investigations/$id',
+  path: '/investigations/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/compare': typeof CompareRoute
+  '/insights': typeof InsightsRoute
+  '/pitch': typeof PitchRoute
+  '/investigations/$id': typeof InvestigationsIdRoute
+  '/investigations/': typeof InvestigationsIndexRoute
 }
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/compare': typeof CompareRoute
+  '/insights': typeof InsightsRoute
+  '/pitch': typeof PitchRoute
+  '/investigations/$id': typeof InvestigationsIdRoute
+  '/investigations': typeof InvestigationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/compare': typeof CompareRoute
+  '/insights': typeof InsightsRoute
+  '/pitch': typeof PitchRoute
+  '/investigations/$id': typeof InvestigationsIdRoute
+  '/investigations/': typeof InvestigationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: "/"
+  fullPaths:
+    | '/'
+    | '/compare'
+    | '/insights'
+    | '/pitch'
+    | '/investigations/$id'
+    | '/investigations/'
   fileRoutesByTo: FileRoutesByTo
-  to: "/"
-  id: "__root__" | "/"
+  to:
+    | '/'
+    | '/compare'
+    | '/insights'
+    | '/pitch'
+    | '/investigations/$id'
+    | '/investigations'
+  id:
+    | '__root__'
+    | '/'
+    | '/compare'
+    | '/insights'
+    | '/pitch'
+    | '/investigations/$id'
+    | '/investigations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompareRoute: typeof CompareRoute
+  InsightsRoute: typeof InsightsRoute
+  PitchRoute: typeof PitchRoute
+  InvestigationsIdRoute: typeof InvestigationsIdRoute
+  InvestigationsIndexRoute: typeof InvestigationsIndexRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/"
-      path: "/"
-      fullPath: "/"
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pitch': {
+      id: '/pitch'
+      path: '/pitch'
+      fullPath: '/pitch'
+      preLoaderRoute: typeof PitchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investigations/': {
+      id: '/investigations/'
+      path: '/investigations'
+      fullPath: '/investigations/'
+      preLoaderRoute: typeof InvestigationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investigations/$id': {
+      id: '/investigations/$id'
+      path: '/investigations/$id'
+      fullPath: '/investigations/$id'
+      preLoaderRoute: typeof InvestigationsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -53,14 +157,19 @@ declare module "@tanstack/react-router" {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompareRoute: CompareRoute,
+  InsightsRoute: InsightsRoute,
+  PitchRoute: PitchRoute,
+  InvestigationsIdRoute: InvestigationsIdRoute,
+  InvestigationsIndexRoute: InvestigationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 
-import type { getRouter } from "./router.tsx"
-import type { createStart } from "@tanstack/react-start"
-declare module "@tanstack/react-start" {
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
