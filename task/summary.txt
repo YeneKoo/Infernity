@@ -1,0 +1,48 @@
+Project: Infernity — Flame in Freefall
+Team: Mr. Space G (Robera Tena, Student; Naol Tena, Developer)
+Challenge: 2026 NASA Space Apps Challenge, Space Exploration track
+
+WHAT IT DOES AND HOW IT WORKS
+Infernity is a fire-safety dashboard for NASA's microgravity combustion research. It turns the public NASA PSI record into a catalog that students, researchers, and aerospace engineers can filter, compare, and interpret against a real habitat scenario.
+
+The app includes 16 curated investigations covering solid, liquid, and gaseous fuels — BASS, BASS-II, Saffire I–III, SAME, SAME-R, DAFT, DAFT-2, FLEX, FLEX-2, CFI, CFI-G, ACME, SPICE, and SLICE. Each record includes fuel type, material, shape and size, oxygen and pressure conditions, airflow, hardware, sensors, variables tested, objectives, key findings, fire-safety relevance, and a source link. Unknown fields stay unknown instead of being filled with guesses.
+
+Users can filter instantly by fire-safety pillar, fuel phase, hardware group, facility, oxygen range, and free-text search. They can compare up to three investigations side by side. The insights page charts documented oxygen concentrations against Earth air (21%), the likely lunar-base floor (30%), and the CFI-G maximum (85%), while also mapping the three hardware families: ACME, MDCA, and the SPICE duct.
+
+The scenario-ranking tool lets a user describe a habitat — for example, a lunar base at 30% oxygen with solid fuel and prevention/suppression priorities. The app sends the full curated catalog to an AI model and returns a ranked shortlist with a justification and stated assumptions for each result. The model can only return IDs that exist in the catalog. Every AI response is labeled, and numbers come from the source records.
+
+Each investigation page also offers a streaming AI summary written for either a researcher or a student. The summary is rendered as formatted Markdown, including headings, lists, links, and tables. Comparison and filtering are pure client-side and work without AI.
+
+Infernity does not ship an API key. Users add any OpenAI-compatible chat-completions endpoint, model ID, and key through the key icon in the navigation bar. The settings are stored only in the browser's localStorage; the server does not persist them.
+
+BENEFITS
+- Makes a large, fragmented public research record faster to search and understand.
+- Helps users compare materials, oxygen conditions, hardware, and findings in one place.
+- Connects NASA experiments directly to fire-safety decisions for spacecraft, stations, lunar and Mars bases, pressurized rovers, and spacesuits.
+- Gives researchers a quick relevance shortlist and gives students an accessible entry point.
+- Shows uncertainty honestly: unknown values remain unknown, assumptions are surfaced, and the partial-gravity gap is called out.
+- Saves AI credentials locally and gives users control over which model they use.
+
+INTENDED IMPACT
+Infernity is intended to make NASA's combustion knowledge more usable during the early design of safer space habitats. Better access to flammability, suppression, detection, and oxygen data can support material selection, fire-safety planning, and future research priorities. The project also highlights where data is missing — especially partial gravity — and creates a foundation that can grow as NASA adds LUCI, FM2, and new PSI results. On Earth, the same record helps explain spinoffs such as smoke detectors that distinguish smoke from dust.
+
+TOOLS AND TECHNOLOGY
+- TanStack Start with file-based routing and server functions
+- React 19 and TypeScript
+- Tailwind CSS v4 and shadcn/ui components
+- Vite and Bun
+- react-markdown and remark-gfm for AI response rendering
+- OpenAI-compatible AI endpoints, including Cerebras
+- Curated public NASA and PSI data in a typed TypeScript file
+- No database, no vector store, and no RAG; everything is in memory
+
+CREATIVITY
+The project treats the catalog as a fire-safety instrument rather than a document dump. The interface uses a flight-deck visual language — dark surfaces, orange hazard accents, a blue spherical flame, and hardware-first organization — to make the science feel like an operational tool. The scenario ranker turns a vague question into an explainable shortlist, while the O2 chart and hardware map turn scattered records into a structural view of the risk. The bring-your-own AI model approach is also a deliberate design choice: it keeps the app portable and puts credential control in the user's hands.
+
+FACTORS CONSIDERED
+- Accuracy: no invented numbers, optional unknown fields, and source links for every record.
+- AI trust: reject unknown IDs, label AI text, require justifications and assumptions, and keep numbers tied to source records.
+- Privacy: no server-side API key storage and a clear localStorage-only notice.
+- Usability: instant client-side filters, mobile layouts, keyboard navigation, and separate researcher/student summaries.
+- Scope: rocket and propellant fire safety is out of scope; partial gravity is presented as a known gap.
+- Simplicity: in-memory data, no database, no authentication, and no unnecessary infrastructure.

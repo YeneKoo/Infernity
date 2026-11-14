@@ -1,0 +1,39 @@
+SUMMARY
+
+Infernity is a fire-safety dashboard for NASA's microgravity combustion research. We curated 16 NASA PSI investigations into a typed, searchable catalog covering fuels, oxygen and pressure conditions, hardware, sensors, findings, and fire-safety relevance. Users can filter instantly, compare up to three experiments, explore oxygen and hardware trends, and walk through a 7-slide pitch deck. For a specific habitat scenario, an AI model ranks the catalog and explains each match with stated assumptions; AI-generated summaries stream in Markdown for researcher or student audiences. Users bring their own OpenAI-compatible endpoint, and credentials stay in browser storage. The project addresses the challenge by making a large public record easier to find, compare, and interpret for spacecraft, lunar bases, and rovers. It matters because future habitats may run at higher oxygen concentrations, and better access to flammability and suppression evidence supports safer material and fire-safety decisions.
+
+
+NASA DATA AND RESOURCES
+
+| Link Text | Link URL |
+| --- | --- |
+| NASA PSI Data Repository — Combustion Science | https://psi.nasa.gov/physci/repo/search?q=combustion |
+| NASA Combustion Science | https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/ |
+| A Researcher's Guide to ISS Combustion Science | https://www.nasa.gov/missions/station/a-researchers-guide-to-combustion-science/ |
+| NASA Apollo 1 — ACCLLP | https://sma.nasa.gov/sma-disciplines/accllp/apollo-1 |
+| NASA Apollo 13 — ACCLLP | https://sma.nasa.gov/sma-disciplines/accllp/apollo-13 |
+| NASA — 25 Years Ago: Fire Aboard Space Station Mir | https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/ |
+| NASA Spinoff — Fire Detector | https://spinoff.nasa.gov/node/9407 |
+
+
+OTHER DATA, RESOURCES, AND TOOLS
+
+| Link Text | Link URL |
+| --- | --- |
+| TanStack Start | https://tanstack.com/start/latest |
+| TanStack Router | https://tanstack.com/router/latest |
+| React | https://react.dev |
+| TypeScript | https://www.typescriptlang.org |
+| Vite | https://vite.dev |
+| Bun | https://bun.sh |
+| Tailwind CSS | https://tailwindcss.com |
+| shadcn/ui | https://ui.shadcn.com |
+| Base UI | https://base-ui.com |
+| Lucide icons | https://lucide.dev |
+| react-markdown | https://github.com/remarkjs/react-markdown |
+| remark-gfm | https://github.com/remarkjs/remark-gfm |
+| tw-animate-css | https://github.com/Wombosvideo/tw-animate-css |
+| Geist font | https://vercel.com/font |
+| Cerebras | https://www.cerebras.ai |
+| Cloudflare Workers Builds | https://developers.cloudflare.com/workers/ci-cd/builds/ |
+| NASA Space Apps Challenge | https://www.spaceappschallenge.org |
