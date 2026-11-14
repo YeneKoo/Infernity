@@ -13,7 +13,7 @@ Built for the **2026 NASA Space Apps Challenge**, Space Exploration track.
 - **Generate a streaming AI summary** for either a researcher or a student audience. Summaries are clearly labeled as AI-generated and cite the investigation ID.
 - **Compare up to three investigations** side by side, with unknowns shown honestly rather than filled in.
 - **See the bigger picture.** The insights page charts documented oxygen concentrations, maps the three hardware families (ACME, MDCA, SPICE duct), summarizes catalog coverage, and calls out the partial-gravity data gap.
-- **Tell the story.** A 12-slide pitch deck at `/pitch` covers the risk, the data problem, the live demo, the stack, and the road ahead. Use arrow keys, the progress dots, or `F` for fullscreen.
+- **Tell the story.** A 7-slide pitch deck at `/pitch` covers the risk, the data problem, the live demo, the stack, and the road ahead. Use arrow keys, the progress dots, or `F` for fullscreen.
 
 ## Contact
 

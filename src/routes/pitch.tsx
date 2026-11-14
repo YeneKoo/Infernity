@@ -346,7 +346,7 @@ function SlideHeading({
           SLIDE {String(index + 1).padStart(2, "0")}
         </Badge>
         <span className="font-mono text-[9px] tracking-[0.16em] text-muted-foreground">
-          12 SLIDES / LIVE DEMO INCLUDED
+          {pitchSlides.length} SLIDES / LIVE DEMO INCLUDED
         </span>
       </div>
       <h1 className="mt-4 text-4xl leading-[1.03] font-medium tracking-tight sm:text-5xl lg:text-6xl">
@@ -534,14 +534,32 @@ function SlideVisual({ visual }: { visual: PitchSlide["visual"] }) {
               </p>
             </div>
           ))}
-          <Button
-            size="sm"
-            className="mt-2"
-            render={<Link to="/investigations" />}
-          >
-            Open live demo
-            <ArrowUpRight data-icon="inline-end" />
-          </Button>
+          <p className="border-t pt-2 text-[10px] leading-relaxed text-muted-foreground">
+            Then open FLEX for the streamed CO2/helium summary, or compare three
+            records side by side.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Button size="sm" render={<Link to="/investigations" />}>
+              Open live demo
+              <ArrowUpRight data-icon="inline-end" />
+            </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              render={<Link to="/investigations/$id" params={{ id: "flex" }} />}
+            >
+              FLEX summary
+            </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              render={
+                <Link to="/compare" search={{ ids: "flex,bass,saffire-i" }} />
+              }
+            >
+              Compare
+            </Button>
+          </div>
         </CardContent>
       </Card>
     )

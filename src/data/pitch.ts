@@ -33,39 +33,16 @@ export const pitchSlides: PitchSlide[] = [
     visual: "title",
   },
   {
-    title: "When fire happens in space",
-    subtitle: "Fire is one of the few failures a crew cannot walk away from.",
+    title: "Fire in space is a different problem",
+    subtitle:
+      "No buoyancy, no easy escape, and a cabin that can be oxygen-rich.",
     bullets: [
-      "Apollo 1 (1967): a pure-oxygen cabin fire killed three astronauts.",
-      "Apollo 13 (1970): an oxygen tank explosion crippled the service module.",
-      "Mir (1997): a failed oxygen generator ignited; the crew fought smoke.",
-      "Artemis II: a smoke alarm went off about 80,000 miles from home.",
+      "Apollo 1, Apollo 13 and Mir show how quickly oxygen and fire turn fatal.",
+      "No buoyancy: flames become blue spheres and Earth intuition fails.",
+      "Moon bases may run at 30% O2 or more and 10.2 psi or less.",
+      "That is more than 40% more oxygen than Earth air, so materials burn more easily.",
     ],
     visual: "incidents",
-  },
-  {
-    title: "Why microgravity changes fire",
-    subtitle:
-      "No buoyancy means no rising plume, no familiar flame shape, and no Earth instinct.",
-    bullets: [
-      "No buoyancy: hot gas does not rise to pull fresh oxygen into the flame.",
-      "A candle becomes a ghostly blue sphere fed by diffusion.",
-      "Flame spread, stability and extinction depend on ventilation and oxygen.",
-      "Fire-safety intuition from Earth does not transfer directly.",
-    ],
-    visual: "microgravity",
-  },
-  {
-    title: "The Moon makes the risk larger",
-    subtitle:
-      "Future habitats may run oxygen-rich and low-pressure at the same time.",
-    bullets: [
-      "Earth air: 21% O2 at 14.7 psi.",
-      "Moon base and rovers: likely 30% O2 or more at 10.2 psi or less.",
-      "That is more than 40% more oxygen than Earth air.",
-      "Higher oxygen makes materials much more flammable.",
-    ],
-    visual: "risk",
   },
   {
     title: "The data is public. The answer is not.",
@@ -91,72 +68,38 @@ export const pitchSlides: PitchSlide[] = [
     visual: "solution",
   },
   {
-    title: "Demo: rank for a scenario",
+    title: "Demo: from scenario to evidence",
     subtitle:
-      "A lunar base at 30% O2, with solid fuel and prevention/suppression priorities.",
+      "A lunar base at 30% O2 with solid fuel, then straight into the record.",
     bullets: [
       "BASS and Saffire rank high for solid-fuel spread and suppression.",
-      "Each result carries a one-sentence justification.",
-      "Assumptions are surfaced, not hidden.",
-      "Only curated catalog records can be returned.",
+      "Every result carries a justification and stated assumptions.",
+      "FLEX streams an AI summary on CO2 and helium suppression.",
+      "Compare up to three investigations side by side.",
     ],
     visual: "demo-rank",
   },
   {
-    title: "Demo: explore the evidence",
-    subtitle:
-      "From a ranked shortlist to the experiment record and a streamed explanation.",
-    bullets: [
-      "FLEX tested CO2 and helium as suppressants.",
-      "Stream a summary at researcher or student depth.",
-      "Compare up to three investigations side by side.",
-      "Unknown fields stay unknown.",
-    ],
-    visual: "demo-explore",
-  },
-  {
-    title: "See the shape of the data",
-    subtitle: "Reference lines turn scattered conditions into a risk picture.",
+    title: "Built for insight and trust",
+    subtitle: "A small stack, curated data, and guardrails around the AI.",
     bullets: [
       "O2 chart: 21% Earth, 30% lunar floor, 85% CFI-G maximum.",
       "Hardware groups: ACME, MDCA, and the SPICE duct.",
-      "Free-flying Saffire and detection hardware stay visible.",
-      "Coverage counts show where the catalog is strong and thin.",
+      "TanStack Start + shadcn/ui + your OpenAI-compatible model.",
+      "Invented IDs rejected. AI text labeled. Numbers from source records.",
     ],
     visual: "insights",
   },
   {
-    title: "Built for speed and trust",
-    subtitle: "A small stack, curated data, and guardrails around the AI.",
+    title: "Making the next giant leap a safer one.",
+    subtitle: "Honest gaps, clear next steps, and a team ready to build.",
     bullets: [
-      "TanStack Start, React and TypeScript.",
-      "shadcn/ui and Tailwind, one theme across the app.",
-      "Bring your own OpenAI-compatible endpoint, including Cerebras.",
-      "Invented IDs rejected. AI text labeled. Numbers from source records.",
-    ],
-    visual: "stack",
-  },
-  {
-    title: "Honest gaps, clear next steps",
-    subtitle: "The dashboard shows what NASA has not measured yet.",
-    bullets: [
-      "No partial-gravity combustion data exists in PSI yet.",
-      "LUCI and FM2 are the expected future additions.",
+      "No partial-gravity combustion data exists in PSI yet; LUCI and FM2 are coming.",
       "Rocket and propellant fire safety is out of scope.",
       "Next: live PSI ingest, LUCI/FM2, and Earth spinoffs.",
+      "Team Mr. Space G — support@fuastyle.com",
     ],
     visual: "roadmap",
-  },
-  {
-    title: "Making the next giant leap a safer one.",
-    subtitle: "Thank you. Let's turn the record into answers.",
-    bullets: [
-      "Team Mr. Space G",
-      "Robera Tena — Student",
-      "Naol Tena — Developer",
-      "support@fuastyle.com",
-    ],
-    visual: "closing",
   },
 ]
 
