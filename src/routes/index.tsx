@@ -360,6 +360,14 @@ function Landing() {
                 Launch scenario ranking
                 <ArrowRight data-icon="inline-end" />
               </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                render={<Link to="/play" />}
+              >
+                Train as a Fire Marshal
+                <ArrowRight data-icon="inline-end" />
+              </Button>
             </div>
           </div>
         </div>

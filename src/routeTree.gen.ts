@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as PitchRouteImport } from './routes/pitch'
+import { Route as PlayRouteImport } from './routes/play'
 import { Route as InvestigationsIndexRouteImport } from './routes/investigations/index'
 import { Route as InvestigationsIdRouteImport } from './routes/investigations/$id'
 
@@ -36,6 +37,11 @@ const PitchRoute = PitchRouteImport.update({
   path: '/pitch',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlayRoute = PlayRouteImport.update({
+  id: '/play',
+  path: '/play',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InvestigationsIndexRoute = InvestigationsIndexRouteImport.update({
   id: '/investigations/',
   path: '/investigations/',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/compare': typeof CompareRoute
   '/insights': typeof InsightsRoute
   '/pitch': typeof PitchRoute
+  '/play': typeof PlayRoute
   '/investigations/$id': typeof InvestigationsIdRoute
   '/investigations/': typeof InvestigationsIndexRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/compare': typeof CompareRoute
   '/insights': typeof InsightsRoute
   '/pitch': typeof PitchRoute
+  '/play': typeof PlayRoute
   '/investigations/$id': typeof InvestigationsIdRoute
   '/investigations': typeof InvestigationsIndexRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/compare': typeof CompareRoute
   '/insights': typeof InsightsRoute
   '/pitch': typeof PitchRoute
+  '/play': typeof PlayRoute
   '/investigations/$id': typeof InvestigationsIdRoute
   '/investigations/': typeof InvestigationsIndexRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/insights'
     | '/pitch'
+    | '/play'
     | '/investigations/$id'
     | '/investigations/'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/insights'
     | '/pitch'
+    | '/play'
     | '/investigations/$id'
     | '/investigations'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/insights'
     | '/pitch'
+    | '/play'
     | '/investigations/$id'
     | '/investigations/'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   CompareRoute: typeof CompareRoute
   InsightsRoute: typeof InsightsRoute
   PitchRoute: typeof PitchRoute
+  PlayRoute: typeof PlayRoute
   InvestigationsIdRoute: typeof InvestigationsIdRoute
   InvestigationsIndexRoute: typeof InvestigationsIndexRoute
 }
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PitchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/play': {
+      id: '/play'
+      path: '/play'
+      fullPath: '/play'
+      preLoaderRoute: typeof PlayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/investigations/': {
       id: '/investigations/'
       path: '/investigations'
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareRoute: CompareRoute,
   InsightsRoute: InsightsRoute,
   PitchRoute: PitchRoute,
+  PlayRoute: PlayRoute,
   InvestigationsIdRoute: InvestigationsIdRoute,
   InvestigationsIndexRoute: InvestigationsIndexRoute,
 }

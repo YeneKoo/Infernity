@@ -18,6 +18,7 @@ const links = [
   { to: "/investigations", label: "Investigations" },
   { to: "/compare", label: "Compare" },
   { to: "/insights", label: "Insights" },
+  { to: "/play", label: "Play" },
 ] as const
 
 export function SiteNav() {
