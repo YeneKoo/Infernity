@@ -89,7 +89,7 @@ export function EndScreen({
                 <Badge
                   key={item.id}
                   variant="outline"
-                  className="text-[9px] font-normal hover:border-primary/40 hover:text-primary"
+                  className="h-auto max-w-full py-1 text-left text-[9px] font-normal whitespace-normal hover:border-primary/40 hover:text-primary"
                   render={
                     <Link to="/investigations/$id" params={{ id: item.id }} />
                   }
