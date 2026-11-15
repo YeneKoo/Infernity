@@ -15,6 +15,8 @@ Built for the **2026 NASA Space Apps Challenge**, Space Exploration track.
 - **See the bigger picture.** The insights page charts documented oxygen concentrations, maps the three hardware families (ACME, MDCA, SPICE duct), summarizes catalog coverage, and calls out the partial-gravity data gap.
 - **Tell the story.** A 7-slide pitch deck at `/pitch` covers the risk, the data problem, the live demo, the stack, and the road ahead. Use arrow keys, the progress dots, or `F` for fullscreen.
 
+- **Train as a Fire Marshal.** A no-LLM learning game with three missions — Pick the Pillar, Match the Mission, and O2 Danger Zone. Eight questions per run, three lives, streaks, optional timer, and links back to the investigations behind every answer.
+
 ## Contact
 
 Questions, feedback, or demo requests: [support@fuastyle.com](mailto:support@fuastyle.com).

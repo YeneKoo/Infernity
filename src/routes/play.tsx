@@ -27,11 +27,7 @@ import {
 } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Progress } from "@/components/ui/progress"
-import {
-  missions,
-  type Mission,
-  type Question,
-} from "@/data/game"
+import { missions, type Mission, type Question } from "@/data/game"
 import {
   QUESTION_SECONDS,
   QUESTIONS_PER_RUN,
@@ -110,16 +106,12 @@ function reducer(state: GameState, action: GameAction): GameState {
   if (action.type === "ANSWER") {
     if (state.screen !== "question") return state
     const question = state.questions[state.index]
-    if (!question) return state
     const isCorrect = action.optionId === question.correctId
     const nextStreak = isCorrect ? state.streak + 1 : 0
     const missedIds = isCorrect
       ? state.missedIds
       : Array.from(
-          new Set([
-            ...state.missedIds,
-            ...(question.investigationIds ?? []),
-          ]),
+          new Set([...state.missedIds, ...(question.investigationIds ?? [])])
         )
 
     return {
@@ -128,7 +120,9 @@ function reducer(state: GameState, action: GameAction): GameState {
       selectedId: action.optionId,
       isCorrect,
       timedOut: Boolean(action.timedOut),
-      score: isCorrect ? state.score + scoreForCorrect(nextStreak) : state.score,
+      score: isCorrect
+        ? state.score + scoreForCorrect(nextStreak)
+        : state.score,
       lives: isCorrect ? state.lives : Math.max(0, state.lives - 1),
       streak: nextStreak,
       bestStreak: Math.max(state.bestStreak, nextStreak),
@@ -137,23 +131,19 @@ function reducer(state: GameState, action: GameAction): GameState {
     }
   }
 
-  if (action.type === "NEXT") {
-    if (state.screen !== "feedback") return state
-    const isLast = state.index >= state.questions.length - 1
-    if (state.lives <= 0 || isLast) {
-      return { ...state, screen: "end" }
-    }
-    return {
-      ...state,
-      screen: "question",
-      index: state.index + 1,
-      selectedId: null,
-      isCorrect: false,
-      timedOut: false,
-    }
+  if (state.screen !== "feedback") return state
+  const isLast = state.index >= state.questions.length - 1
+  if (state.lives <= 0 || isLast) {
+    return { ...state, screen: "end" }
   }
-
-  return state
+  return {
+    ...state,
+    screen: "question",
+    index: state.index + 1,
+    selectedId: null,
+    isCorrect: false,
+    timedOut: false,
+  }
 }
 
 const missionIcons = {
@@ -291,7 +281,7 @@ function PlayPage() {
           value={((state.index + 1) / state.questions.length) * 100}
           className="flex-1"
         />
-        <span className="font-mono text-[10px] tabular-nums text-muted-foreground">
+        <span className="font-mono text-[10px] text-muted-foreground tabular-nums">
           {state.index + 1} / {state.questions.length}
         </span>
       </div>
@@ -308,7 +298,7 @@ function PlayPage() {
               TIME
             </span>
             <Progress value={timerValue} className="flex-1" />
-            <span className="w-6 text-right font-mono text-[10px] tabular-nums text-muted-foreground">
+            <span className="w-6 text-right font-mono text-[10px] text-muted-foreground tabular-nums">
               {timeLeft}s
             </span>
           </div>
@@ -329,9 +319,7 @@ function PlayPage() {
           isCorrect={state.isCorrect}
           timedOut={state.timedOut}
           lives={state.lives}
-          onSelect={(optionId) =>
-            dispatch({ type: "ANSWER", optionId })
-          }
+          onSelect={(optionId) => dispatch({ type: "ANSWER", optionId })}
           onNext={() => dispatch({ type: "NEXT" })}
         />
       </div>
@@ -451,9 +439,7 @@ function StartScreen({
 function HowToPlayDialog() {
   return (
     <Dialog>
-      <DialogTrigger
-        render={<Button variant="outline" size="sm" />}
-      >
+      <DialogTrigger render={<Button variant="outline" size="sm" />}>
         <HelpCircle data-icon="inline-start" />
         How to play
       </DialogTrigger>
@@ -466,9 +452,9 @@ function HowToPlayDialog() {
         </DialogHeader>
         <div className="grid gap-3 text-[11px] leading-relaxed text-muted-foreground">
           <p>
-            <span className="font-medium text-foreground">Scoring.</span> Correct
-            answers earn 100 points plus a streak bonus of 25 per step, capped at
-            100.
+            <span className="font-medium text-foreground">Scoring.</span>{" "}
+            Correct answers earn 100 points plus a streak bonus of 25 per step,
+            capped at 100.
           </p>
           <p>
             <span className="font-medium text-foreground">Lives.</span> A wrong

@@ -10,7 +10,7 @@ import { investigations } from "@/data/investigations"
 import { cn } from "@/lib/utils"
 
 const investigationTitles = new Map(
-  investigations.map((item) => [item.id, item.title]),
+  investigations.map((item) => [item.id, item.title])
 )
 
 export function QuestionCard({
@@ -82,12 +82,12 @@ export function QuestionCard({
               disabled={answered}
               onClick={() => onSelect(option.id)}
               className={cn(
-                "h-auto min-h-12 w-full justify-start gap-3 whitespace-normal px-3 py-3 text-left text-sm leading-snug disabled:opacity-100",
+                "h-auto min-h-12 w-full justify-start gap-3 px-3 py-3 text-left text-sm leading-snug whitespace-normal disabled:opacity-100",
                 showCorrect &&
                   "border-emerald-500/60 bg-emerald-500/10 text-emerald-300",
                 showWrong &&
                   "border-destructive/60 bg-destructive/10 text-destructive",
-                showWrong && flash && "animate-pulse",
+                showWrong && flash && "animate-pulse"
               )}
             >
               <span className="flex size-5 shrink-0 items-center justify-center border border-border/70 font-mono text-[9px] text-muted-foreground">
@@ -109,8 +109,8 @@ export function QuestionCard({
             <Alert
               variant={isCorrect ? "default" : "destructive"}
               className={cn(
-                "animate-in fade-in duration-200",
-                isCorrect && "border-emerald-500/30 bg-emerald-500/[0.04]",
+                "animate-in duration-200 fade-in",
+                isCorrect && "border-emerald-500/30 bg-emerald-500/[0.04]"
               )}
             >
               {isCorrect ? (

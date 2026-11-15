@@ -91,10 +91,7 @@ export function EndScreen({
                   variant="outline"
                   className="text-[9px] font-normal hover:border-primary/40 hover:text-primary"
                   render={
-                    <Link
-                      to="/investigations/$id"
-                      params={{ id: item.id }}
-                    />
+                    <Link to="/investigations/$id" params={{ id: item.id }} />
                   }
                 >
                   {item.title}

@@ -21,7 +21,7 @@ export function LivesBar({
             "size-4 transition-all duration-200",
             index < lives
               ? "fill-primary/20 text-primary"
-              : "text-muted-foreground/20",
+              : "text-muted-foreground/20"
           )}
         />
       ))}

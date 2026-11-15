@@ -18,7 +18,7 @@ export function shuffle<T>(items: T[], random = Math.random): T[] {
 export function buildRun(
   mission: Mission,
   count = QUESTIONS_PER_RUN,
-  random = Math.random,
+  random = Math.random
 ): Question[] {
   const pool = questions.filter((question) => question.mission === mission)
   return shuffle(pool, random)
@@ -50,11 +50,13 @@ export function rankForScore(score: number): {
   if (score < 1000) {
     return {
       label: "Flight Engineer",
-      description: "Strong run. A little more practice and you are mission-ready.",
+      description:
+        "Strong run. A little more practice and you are mission-ready.",
     }
   }
   return {
     label: "Fire Marshal",
-    description: "Excellent work. You can brief a crew on these fire-safety basics.",
+    description:
+      "Excellent work. You can brief a crew on these fire-safety basics.",
   }
 }

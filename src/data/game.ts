@@ -655,10 +655,15 @@ export const questions: Question[] = [
 if (import.meta.env.DEV) {
   const knownIds = new Set(investigations.map((item) => item.id))
   for (const question of questions) {
+    if (!question.options.some((option) => option.id === question.correctId)) {
+      throw new Error(
+        `Game question "${question.id}" has a correctId that is not in its options`
+      )
+    }
     for (const id of question.investigationIds ?? []) {
       if (!knownIds.has(id)) {
         throw new Error(
-          `Game question "${question.id}" references unknown investigation "${id}"`,
+          `Game question "${question.id}" references unknown investigation "${id}"`
         )
       }
     }
